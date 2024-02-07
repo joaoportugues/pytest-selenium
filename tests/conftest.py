@@ -1,15 +1,16 @@
 import pytest
 import pytest_html
-import base64
 from selenium import webdriver
 
-#@pytest.fixture(scope="class")
+
+# @pytest.fixture(scope="class")
 @pytest.fixture(scope="session")
 def driver():
     driver = webdriver.Chrome()
     driver.maximize_window()
     yield driver
     driver.quit()
+
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
@@ -25,5 +26,5 @@ def pytest_runtest_makereport(item, call):
             if driver:
                 screenshot = driver.get_screenshot_as_base64()
                 extras.append(pytest_html.extras.image(screenshot, "Screenshot"))
-    
+
     report.extras = extras

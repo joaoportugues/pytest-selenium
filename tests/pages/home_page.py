@@ -1,17 +1,18 @@
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
 
+
 class HomePage(BasePage):
     WIKIPEDIA_URL = "https://www.wikipedia.org"
     SEARCH_FIELD = (By.ID, "searchInput")
-    
+
     def __init__(self, driver):
         super().__init__(driver)
 
     def navigate_to_wikipedia(self):
         self.driver.get(self.WIKIPEDIA_URL)
 
-    def is_title_matches(self):
+    def title_matches(self):
         return "Wikipedia" in self.driver.title
 
     def search_for(self, phrase):
@@ -20,6 +21,5 @@ class HomePage(BasePage):
         search_field.send_keys(phrase)
         search_field.submit()
 
-    def check_url_matches(self, phrase):
+    def url_matches(self, phrase):
         return phrase in self.driver.current_url
-
