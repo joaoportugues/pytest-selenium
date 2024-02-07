@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
 
-class WikipediaResultPage(BasePage):
+class ResultPage(BasePage):
     PAGE_HEADER = (By.ID, "firstHeading")
 
     def __init__(self, driver):
