@@ -1,4 +1,5 @@
 import pytest
+import base64
 from selenium import webdriver
 
 #@pytest.fixture(scope="class")
@@ -9,7 +10,3 @@ def driver():
     yield driver
     driver.quit()
 
-def pytest_exception_interact(node, call, report):
-    if report.failed:
-        driver = node.funcargs['driver']
-        driver.save_screenshot("screenshot.png")

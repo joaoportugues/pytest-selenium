@@ -7,7 +7,6 @@ class HomePage(BasePage):
     
     def __init__(self, driver):
         super().__init__(driver)
-        # Define locators
 
     def navigate_to_wikipedia(self):
         self.driver.get(self.WIKIPEDIA_URL)
