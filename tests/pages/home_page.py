@@ -12,8 +12,8 @@ class HomePage(BasePage):
     def navigate_to_wikipedia(self):
         self.driver.get(self.WIKIPEDIA_URL)
 
-    def title_matches(self):
-        return "Wikipedia" in self.driver.title
+    def title_matches(self, phrase):
+        return phrase in self.driver.title
 
     def search_for(self, phrase):
         search_field = self.driver.find_element(*self.SEARCH_FIELD)

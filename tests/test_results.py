@@ -8,6 +8,6 @@ def test_wikipedia_result(driver):
     result_page = ResultPage(driver)
 
     home_page.navigate_to_wikipedia()
-    assert home_page.title_matches(), "The title doesn't match."
+    assert home_page.title_matches("Wikipedia"), "The title doesn't match."
     home_page.search_for("Selenium")
     assert result_page.header_matches("Mercury"), "The header doesn't match."
