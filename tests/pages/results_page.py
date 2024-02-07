@@ -8,4 +8,4 @@ class ResultPage(BasePage):
         super().__init__(driver)
 
     def get_page_header(self, phrase):
-        return self.driver.find_element(*self.PAGE_HEADER).text 
+        return phrase in self.driver.find_element(*self.PAGE_HEADER).text 
